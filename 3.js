@@ -4,6 +4,30 @@
 // Клас TeaMaker відповідає за загальні дії, необхідні для приготування чаю.
 class TeaMaker {
   // Робимо метод makeTea, який викликає всі кроки приготування чаю по черзі boilWater, addTeaLeaves, #steepTea,
+  makeTea() {
+    this.boilWater();
+    this.addTeaLeaves();
+    this.#steepTea();
+    this.pourIntoCup();
+    this.addCondiments();
+    this.serveTea();
+  }
+  boilWater() {
+    console.log("Кип'ятимо воду....");
+  }
+  addTeaLeaves() {
+    console.log("Додаємо чайні листки....");
+  }
+  #steepTea() {
+    console.log("Заварюємо чай....");
+  }
+  pourIntoCup() {
+    console.log("Переливаємо чай в чашку....");
+  }
+  addCondiments() {}
+  serveTea() {
+    console.log("Чай подається!");
+  }
   // pourIntoCup, addCondiments, serveTea.
   // Робимо метод boilWater, який відповідає за кип'ятіння води та виводить в консоль Кип'ятимо воду....
   // Робимо метод addTeaLeaves, який відповідає за додавання чайних листків та виводить в консоль Додаємо чайні листки....
@@ -15,11 +39,18 @@ class TeaMaker {
 
 // Клас GreenTeaMaker є підкласом класу TeaMaker та додає інгредієнти для зеленого чаю.
 class GreenTeaMaker extends TeaMaker {
+  addCondiments() {
+    console.log("Додаємо мед, щоб приготувати зелений чай...");
+  }
+
   // Робимо метод addCondiments, який виводить в консоль Додаємо мед, щоб приготувати зелений чай...
 }
 
 // Клас BlackTeaMaker є підкласом класу TeaMaker та додає інгредієнти для чорного чаю.
 class BlackTeaMaker extends TeaMaker {
+  addCondiments() {
+    console.log("Додаємо мед, щоб приготувати чорний чай...");
+  }
   // Робимо метод addCondiments, який виводить в консоль Додаємо мед, щоб приготувати чорний чай...
 }
 
@@ -27,8 +58,8 @@ console.log("Завдання 3 ====================================");
 // Після виконання розкоментуйте код нижче
 
 // Створюємо екземпляри класів GreenTeaMaker та BlackTeaMaker.
-// const greenTeaMaker = new GreenTeaMaker();
-// greenTeaMaker.makeTea();
+const greenTeaMaker = new GreenTeaMaker();
+greenTeaMaker.makeTea();
 
-// const blackTeaMaker = new BlackTeaMaker();
-// blackTeaMaker.makeTea();
+const blackTeaMaker = new BlackTeaMaker();
+blackTeaMaker.makeTea();
